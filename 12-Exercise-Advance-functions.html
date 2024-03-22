@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+</head>
+<body>
+
+    <button onclick="
+        // Exer-4
+        document.querySelector('.js-Start-button').innerHTML = 'Loading...';
+
+        changeInner();
+        " class="js-Start-button">Start</button>
+
+    <br><br>
+
+    <button onclick="
+        Added();
+    " class="js-add-to-cart-button">Add to Cart</button>
+    <p class="add-paragraph"></p>
+
+    <button onclick="
+        messages+=1;
+    ">Add</button>
+    <button onclick="
+        messages-=1;
+    ">Remove</button>
+
+    <script>
+        // Exer-1
+        const add = function() {
+            console.log(2 + 3);
+        };
+        add();
+        add();
+
+        // Exer-2
+        function runTwice(fun) {
+            fun();
+        }
+        runTwice(function(){
+            console.log('12b');
+        });
+        runTwice(add);
+
+        // Exer-3
+        function changeInner() {
+            setTimeout(function(){
+                document.querySelector('.js-Start-button').innerHTML = 'Finished!';
+            }, 1000);
+        }
+
+        // Exer-5,6
+        let timeoutId;
+
+        function Added() {
+
+            const messageElement = document.querySelector('.add-paragraph');
+            messageElement.innerHTML = 'Added';
+
+            clearTimeout(timeoutId);
+
+            timeoutId = setTimeout(function() {
+                messageElement.innerHTML = '';
+            }, 2000);
+        }
+
+        let messages = 2;
+        setInterval(function(){
+            if (document.title === 'App'){
+                if (messages === 0) {
+                    document.title = 'App';
+                } else if (messages > 0) {
+                    document.title = `(${messages}) New messages`;
+                }
+            } else {
+                document.title = 'App';
+            }
+        }, 1000);
+
+
+    </script>
+</body>
+</html>

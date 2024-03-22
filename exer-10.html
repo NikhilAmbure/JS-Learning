@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML CSS JS Together</title>
+
+    <style>
+
+        .add-to-cart-button {
+            background-color: yellow;
+            color: black;
+            padding: 10px 40px;
+            border: none;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .request-now-button {
+            background-color: black;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 40px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .schedule-button {
+            background-color: rgb(230, 230, 230);
+            color: black;
+            font-weight: bold;
+            font-size: 13px;
+            padding: 10px 15px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Exer 1 -->
+    <button class="add-to-cart-button">
+        Add to Cart
+    </button>
+    <br>
+
+    <!-- Exer 2 -->
+    <button class="request-now-button">
+        Request now
+    </button>
+
+    <button class="schedule-button">
+        Schedule for later
+    </button>
+
+    <!-- Exer 3 -->
+    <button class="js-button">Test</button>
+
+
+
+    <script>
+
+        // Exer - 3
+        const result = document.querySelector('.js-button');
+        res = result.classList.contains('js-button');
+        console.log(res);
+
+        
+
+    </script>
+
+</body>
+</html>

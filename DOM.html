@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+
+    <button>Hello</button>
+    <button class="js-button">Second button</button>
+
+
+    <script>
+
+        // method = function inside the object
+        // It takes any HTML element in the page
+        // Every HTML has a property .innerHTML
+        console.log(document.querySelector('button'));
+        console.log(document.querySelector('button')
+            .innerHTML);
+        console.log(document.querySelector('button')
+            .innerHTML = 'Changed');
+
+        // Class attribute - class selector
+        // console.log(document.querySelector('.js-button'));
+        const buttonElement = document.querySelector('.js-button');
+        console.log(buttonElement);
+
+
+
+
+        /*
+        console.log(document.title);
+        document.title = 'Changed';
+
+        console.log(document.body);
+        console.log(typeof document.body);
+
+        console.log(document.body.innerHTML);
+        document.body.innerHTML = '<button>Hi</button>';
+        */
+
+        
+        
+
+
+        // DOM : Document object model
+        // the DOM combines JavaScript and HTML together
+        // it gives access to JavaScript
+        // built-in object
+        // the document object represents / models the webpage.
+        // it is linked to the webpage
+        // document.body.innerHTML = 'hello';
+        // document.title = 'Good Job!';
+
+
+    </script>
+</body>
+</html>
