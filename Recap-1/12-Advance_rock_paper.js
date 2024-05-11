@@ -181,3 +181,4 @@ document.body.addEventListener('keydown', (event) => {
         playGame('scissors');
     }
 });
+
