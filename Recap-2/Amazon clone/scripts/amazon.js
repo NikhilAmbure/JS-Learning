@@ -1,15 +1,15 @@
 // Generating html using above array
 // Array from the products.js
 
-import { cart as cart } from '../data/cart.js';
+import { cart, addToCart } from '../data/cart.js';
 import { products } from '../data/products.js';
 // .. goes outside of the current folder
 
 let productsHTML = '';
 
-products.forEach((product)=>{
-    // Accumulator Pattern
-    productsHTML += `
+products.forEach((product) => {
+  // Accumulator Pattern
+  productsHTML += `
     <div class="product-container">
         <div class="product-image-container">
           <img class="product-image" src="${product.image}">
@@ -64,60 +64,34 @@ console.log(productsHTML);
 
 // Now put the html into the webpage
 document.querySelector('.js-products-grid').
-innerHTML = productsHTML;
+  innerHTML = productsHTML;
 
+function updateCartQuantity() {
+  // for total cart-quantity
+  let cartQuantity = 0;
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
 
+  // console.log(cartQuantity);
+  document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+  // console.log(cart);
+}
 
-
-// Add to Cart - adding eventlistener
-// Data Attribute : - Is just another HTML attribute
-//  - Allows us to attach any info of an element
-// Syntax for data attribute : - have to start with "data-" 
 document.querySelectorAll('.js-add-to-cart')
-.forEach((button) => {
-    button.addEventListener('click', ()=>{
-    //    console.log(button.dataset); 
-    // from line 50****
-    //    console.log(button.dataset.productName);  
-    //    Dataset - adds the all data attributes
-    // const productId = button.dataset.productId;
-    const {productId} = button.dataset;
-    // productId for uniqueness for an each product
-    
-    let matchingItem; 
+  .forEach((button) => {
+    button.addEventListener('click', () => {
+      //    console.log(button.dataset); 
+      // from line 50****
+      //    console.log(button.dataset.productName);  
+      //    Dataset - adds the all data attributes
+      // const productId = button.dataset.productId;
 
-    cart.forEach((item)=>{
-        if (productId === item.productId) {
-            matchingItem = item;
-        }
+      const { productId } = button.dataset;
+      addToCart(productId);
+      updateCartQuantity();
+
     });
-
-    const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
-    const quantity = Number(quantitySelector.value);
-
-    if (matchingItem) {
-        // matchingItem.quantity += 1;
-        matchingItem.quantity += quantity;
-    } else {
-        cart.push({
-            // productId: productId,
-            // quantity: 1,
-            // quantity: quantity,
-            productId, 
-            quantity
-        });
-    }
-
-    // for total cart-quantity
-    let cartQuantity = 0;
-    cart.forEach((item)=>{
-        cartQuantity += item.quantity;
-    });
-
-    // console.log(cartQuantity);
-    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
-    // console.log(cart);
-    });
-});
+  });
 
 
