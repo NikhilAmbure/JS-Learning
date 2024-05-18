@@ -1,5 +1,9 @@
 // Generating html using above array
 // Array from the products.js
+
+import {cart as cart} from '../data/cart.js';
+// .. goes outside of the current folder
+
 let productsHTML = '';
 
 products.forEach((product)=>{
