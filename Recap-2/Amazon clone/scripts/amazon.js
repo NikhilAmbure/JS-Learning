@@ -1,7 +1,8 @@
 // Generating html using above array
 // Array from the products.js
 
-import {cart as cart} from '../data/cart.js';
+import { cart as cart } from '../data/cart.js';
+import { products } from '../data/products.js';
 // .. goes outside of the current folder
 
 let productsHTML = '';
